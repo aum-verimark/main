@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cut">
+<title>Proof is coming.</title>
+<meta name="description" content="Reach is everywhere. Proof is coming. Something new is being built for brands and the communities they want to reach. Check back in a few days.">
+<meta name="theme-color" content="#07111F">
+<meta property="og:title" content="Reach is everywhere. Proof is coming.">
+<meta property="og:description" content="Something new is being built. A new piece unlocks each day you come back.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="/fonts/instrument-serif-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/instrument-serif-latin-400-italic.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+  @font-face{font-family:"Instrument Serif";font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/instrument-serif-latin-400-normal.woff2) format("woff2")}
+  @font-face{font-family:"Instrument Serif";font-style:italic;font-weight:400;font-display:swap;src:url(/fonts/instrument-serif-latin-400-italic.woff2) format("woff2")}
+  @font-face{font-family:"Schibsted Grotesk";font-weight:400;font-display:swap;src:url(/fonts/schibsted-grotesk-latin-400-normal.woff2) format("woff2")}
+  @font-face{font-family:"Schibsted Grotesk";font-weight:500;font-display:swap;src:url(/fonts/schibsted-grotesk-latin-500-normal.woff2) format("woff2")}
+  @font-face{font-family:"IBM Plex Mono";font-weight:400;font-display:swap;src:url(/fonts/ibm-plex-mono-latin-400-normal.woff2) format("woff2")}
+  @font-face{font-family:"IBM Plex Mono";font-weight:500;font-display:swap;src:url(/fonts/ibm-plex-mono-latin-500-normal.woff2) format("woff2")}
+  :root{
+    --ink:#07111F; --ink-2:#0B1A2E; --ink-3:#10243D;
+    --line:rgba(150,185,215,.14); --line-2:rgba(150,185,215,.24);
+    --text:#E8EEF5; --muted:#93A6BA; --dim:#5E7389;
+    --teal:#3FD0C4; --teal-deep:#0E7C86; --amber:#F2B84B;
+    --serif:"Instrument Serif", Georgia, serif;
+    --sans:"Schibsted Grotesk", system-ui, sans-serif;
+    --mono:"IBM Plex Mono", ui-monospace, monospace;
+    --pad:clamp(20px, 5vw, 64px);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{background:var(--ink);color-scheme:dark}
+  body{font-family:var(--sans);color:var(--text);background:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  ::selection{background:var(--teal);color:var(--ink)}
+  a{color:inherit}
+
+  /* grain */
+  body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:50;opacity:.06;mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+  .mono{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+
+  /* ---------- top bar ---------- */
+  .bar{position:absolute;top:0;left:0;right:0;z-index:5;display:flex;justify-content:space-between;align-items:center;padding:22px var(--pad)}
+  .mark{width:34px;height:34px;display:block}
+  .chip{display:inline-flex;align-items:center;gap:10px;padding:8px 14px;border:1px solid var(--line-2);border-radius:999px;color:var(--muted);background:rgba(7,17,31,.55);backdrop-filter:blur(8px)}
+  .dot{width:8px;height:8px;border-radius:50%;background:var(--amber);box-shadow:0 0 0 0 rgba(242,184,75,.6);animation:ping 2.2s infinite}
+  @keyframes ping{0%{box-shadow:0 0 0 0 rgba(242,184,75,.55)}70%{box-shadow:0 0 0 10px rgba(242,184,75,0)}100%{box-shadow:0 0 0 0 rgba(242,184,75,0)}}
+
+  /* ---------- hero ---------- */
+  .hero{position:relative;min-height:100svh;display:grid;align-items:end;padding:120px var(--pad) clamp(40px,7vh,80px);isolation:isolate;overflow:hidden}
+  #field{position:absolute;inset:0;width:100%;height:100%;z-index:-1}
+  .hero::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+    background:radial-gradient(120% 80% at 15% 100%, rgba(7,17,31,.96) 20%, rgba(7,17,31,.55) 55%, rgba(7,17,31,0) 80%),
+               radial-gradient(60% 50% at 85% 20%, rgba(14,124,134,.18), transparent 70%)}
+  .hero-grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(280px,.8fr);gap:clamp(32px,5vw,80px);align-items:end;max-width:1360px;width:100%;margin:0 auto}
+  .eyebrow{color:var(--teal);margin-bottom:28px;display:flex;gap:12px;align-items:center}
+  .eyebrow::before{content:"";width:28px;height:1px;background:var(--teal)}
+  h1{font-family:var(--serif);font-weight:400;font-size:clamp(54px,10.5vw,168px);line-height:.9;letter-spacing:-.025em}
+  h1 .l{display:block;overflow:hidden;padding-bottom:.08em}
+  h1 .l > span{display:inline-block;transform:translateY(105%);animation:rise 1.1s cubic-bezier(.2,.8,.2,1) forwards}
+  h1 .l:nth-child(2) > span{animation-delay:.18s}
+  @keyframes rise{to{transform:none}}
+  h1 em{font-style:italic;color:var(--teal);position:relative}
+  h1 em::after{content:"";position:absolute;left:.04em;right:.02em;bottom:.06em;height:.045em;background:var(--teal);transform:scaleX(0);transform-origin:left;animation:underline .9s 1.6s cubic-bezier(.6,0,.2,1) forwards}
+  @keyframes underline{to{transform:scaleX(1)}}
+  .lede{max-width:560px;margin-top:32px;font-size:clamp(17px,1.5vw,20px);color:var(--muted);opacity:0;animation:fade 1s .9s forwards}
+  .lede strong{color:var(--text);font-weight:500}
+  @keyframes fade{to{opacity:1}}
+
+  /* status card */
+  .status{border:1px solid var(--line-2);border-radius:18px;background:linear-gradient(180deg,rgba(16,36,61,.72),rgba(11,26,46,.72));backdrop-filter:blur(14px);padding:22px 22px 18px;opacity:0;animation:fade 1s 1.2s forwards}
+  .status h2{font-family:var(--mono);font-weight:500;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);display:flex;justify-content:space-between;padding-bottom:14px;border-bottom:1px dashed var(--line-2);margin-bottom:6px}
+  .row{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:10px 0;border-bottom:1px solid var(--line);font-family:var(--mono);font-size:13px}
+  .row:last-of-type{border-bottom:0}
+  .row dt{color:var(--dim);letter-spacing:.1em;text-transform:uppercase;font-size:11px}
+  .row dd{color:var(--text);font-variant-numeric:tabular-nums;text-align:right}
+  .row dd.pending{color:var(--amber)}
+  .meter{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:14px 0 14px}
+  .meter i{height:4px;border-radius:2px;background:var(--line-2);position:relative;overflow:hidden}
+  .meter i.on{background:var(--teal)}
+  .meter i.next::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(242,184,75,.9),transparent);animation:sweep 1.8s infinite}
+  @keyframes sweep{from{transform:translateX(-100%)}to{transform:translateX(100%)}}
+  .status p{font-size:13.5px;color:var(--muted);line-height:1.5}
+  .status p b{color:var(--text);font-weight:500}
+
+  .scroll-cue{position:absolute;left:50%;bottom:18px;transform:translateX(-50%);color:var(--dim);font-size:10px;display:flex;flex-direction:column;align-items:center;gap:8px;opacity:0;animation:fade 1s 2.2s forwards}
+  .scroll-cue::after{content:"";width:1px;height:30px;background:linear-gradient(var(--dim),transparent)}
+
+  /* ---------- sections ---------- */
+  section{padding:clamp(80px,12vw,160px) var(--pad);position:relative}
+  .wrap{max-width:1360px;margin:0 auto}
+  .sec-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:end;margin-bottom:clamp(48px,6vw,80px)}
+  .sec-head .mono{color:var(--teal);margin-bottom:18px;display:block}
+  h3.big{font-family:var(--serif);font-weight:400;font-size:clamp(40px,5.6vw,84px);line-height:.98;letter-spacing:-.02em}
+  h3.big em{color:var(--teal)}
+  .sec-head p{color:var(--muted);font-size:17px;max-width:460px;justify-self:end}
+
+  /* the four words */
+  .words{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line-2)}
+  .word{padding:28px 24px 36px 0;border-right:1px solid var(--line);position:relative;min-height:280px;display:flex;flex-direction:column}
+  .word + .word{padding-left:24px}
+  .word:last-child{border-right:0}
+  .word .n{display:flex;justify-content:space-between;align-items:center;color:var(--dim);margin-bottom:56px}
+  .word .tick{width:22px;height:22px;border-radius:50%;border:1px solid var(--line-2);display:grid;place-items:center}
+  .word.open .tick{background:var(--teal);border-color:var(--teal)}
+  .word .tick svg{width:12px;height:12px;opacity:0}
+  .word.open .tick svg{opacity:1}
+  .word .w{font-family:var(--serif);font-size:clamp(40px,4.4vw,64px);line-height:1;letter-spacing:-.01em;margin-bottom:18px}
+  .word .d{color:var(--muted);font-size:15.5px;max-width:260px}
+  .word.locked .w,.word.locked .d{color:transparent;user-select:none;position:relative}
+  .word.locked .w span,.word.locked .d span{background:var(--ink-3);border-radius:4px;box-decoration-break:clone;-webkit-box-decoration-break:clone;background-image:repeating-linear-gradient(115deg,rgba(150,185,215,.08) 0 6px,transparent 6px 12px)}
+  .word.locked .lock{display:block}
+  .lock{display:none;margin-top:auto;padding-top:24px;color:var(--amber)}
+  .word.fresh .w{animation:reveal 1.4s cubic-bezier(.2,.8,.2,1)}
+  @keyframes reveal{from{filter:blur(14px);opacity:0;letter-spacing:.2em}to{filter:none;opacity:1}}
+
+  /* three sides */
+  .sides{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .side{border:1px solid var(--line);border-radius:22px;padding:32px 28px 34px;background:linear-gradient(180deg,rgba(16,36,61,.45),rgba(7,17,31,0));transition:border-color .4s, transform .4s}
+  .side:hover{border-color:rgba(63,208,196,.45);transform:translateY(-4px)}
+  .side .mono{color:var(--dim)}
+  .side h4{font-family:var(--serif);font-weight:400;font-size:clamp(30px,2.8vw,40px);line-height:1.05;margin:56px 0 16px}
+  .side p{color:var(--muted);font-size:16px}
+  .glyph{display:block;width:44px;height:44px;margin-top:22px}
+
+  /* marquee */
+  .marquee{border-block:1px solid var(--line);overflow:hidden;padding:26px 0;white-space:nowrap;mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
+  .track{display:inline-flex;gap:48px;animation:slide 48s linear infinite;font-family:var(--serif);font-size:clamp(26px,3vw,40px);color:var(--muted)}
+  .track span{display:inline-flex;align-items:center;gap:48px}
+  .track span::after{content:"";width:10px;height:10px;border:1px solid var(--teal);transform:rotate(45deg)}
+  .track em{color:var(--text)}
+  @keyframes slide{to{transform:translateX(-50%)}}
+
+  /* principles */
+  .principles{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--line-2)}
+  .principles div{padding:28px 28px 8px 0}
+  .principles div + div{padding-left:28px;border-left:1px solid var(--line)}
+  .principles b{display:block;font-weight:500;font-size:18px;margin:14px 0 8px}
+  .principles p{color:var(--muted);font-size:15px}
+
+  /* closing */
+  .closing{text-align:center;padding-bottom:clamp(60px,8vw,100px)}
+  .closing .not{font-family:var(--serif);font-size:clamp(84px,17vw,260px);line-height:.85;letter-spacing:-.04em}
+  .closing .not em{color:var(--teal)}
+  .closing p.sub{color:var(--muted);font-size:clamp(17px,1.6vw,21px);max-width:560px;margin:28px auto 44px}
+  .countdown{display:inline-flex;gap:clamp(10px,2vw,22px);align-items:flex-end;border:1px solid var(--line-2);border-radius:20px;padding:20px clamp(18px,3vw,34px);background:rgba(11,26,46,.6)}
+  .countdown .u{display:flex;flex-direction:column;align-items:center;gap:6px}
+  .countdown .v{font-family:var(--mono);font-size:clamp(30px,4.4vw,52px);font-weight:400;font-variant-numeric:tabular-nums;line-height:1}
+  .countdown .k{font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:var(--dim);text-transform:uppercase}
+  .countdown .sep{font-family:var(--mono);font-size:clamp(26px,3.6vw,44px);color:var(--dim);padding-bottom:20px}
+  .countdown-label{display:block;color:var(--amber);margin-bottom:16px}
+  .hint{margin-top:26px;color:var(--dim)}
+  kbd{font-family:var(--mono);font-size:11px;border:1px solid var(--line-2);border-bottom-width:2px;border-radius:5px;padding:2px 6px;color:var(--muted)}
+
+  footer{border-top:1px solid var(--line);padding:24px var(--pad);display:flex;justify-content:space-between;color:var(--dim);gap:16px;flex-wrap:wrap}
+
+  /* scroll reveal */
+  .rv{opacity:0;transform:translateY(28px);transition:opacity 1s cubic-bezier(.2,.8,.2,1),transform 1s cubic-bezier(.2,.8,.2,1)}
+  .rv.in{opacity:1;transform:none}
+
+  /* ---------- responsive ---------- */
+  @media (max-width:1000px){
+    .hero-grid{grid-template-columns:1fr}
+    .status{max-width:460px}
+    .words{grid-template-columns:repeat(2,1fr)}
+    .word:nth-child(2){border-right:0}
+    .word:nth-child(n+3){border-top:1px solid var(--line)}
+    .word:nth-child(3){padding-left:0}
+    .sides{grid-template-columns:1fr}
+    .side h4{margin-top:32px}
+    .sec-head{grid-template-columns:1fr}
+    .sec-head p{justify-self:start}
+  }
+  @media (max-width:640px){
+    .bar .chip .long{display:none}
+    .words{grid-template-columns:1fr}
+    .word,.word + .word{padding:24px 0 30px;border-right:0;border-top:1px solid var(--line);min-height:0}
+    .word:first-child{border-top:0}
+    .word .n{margin-bottom:28px}
+    .principles{grid-template-columns:1fr}
+    .principles div,.principles div + div{padding:24px 0 8px;border-left:0;border-top:1px solid var(--line)}
+    .principles div:first-child{border-top:0}
+    .scroll-cue{display:none}
+    footer{flex-direction:column}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation-duration:.01ms!important;animation-delay:0s!important;animation-iteration-count:1!important;transition:none!important}
+    h1 .l > span{transform:none}
+    .rv{opacity:1;transform:none}
+    .track{animation:none}
+  }
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><rect x="5" y="5" width="54" height="54" rx="15" fill="none" stroke="#3FD0C4" stroke-width="2.5" stroke-dasharray="170 250" stroke-linecap="round"/><path d="M20 33l8.5 8.5L45 24" fill="none" stroke="#E8EEF5" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  <span class="chip mono" role="status"><span class="dot"></span>Pending<span class="long">&nbsp;verification</span></span>
+</header>
+
+<main>
+  <!-- ================= HERO ================= -->
+  <section class="hero" aria-labelledby="h">
+    <canvas id="field" aria-hidden="true"></canvas>
+    <div class="hero-grid">
+      <div>
+        <p class="eyebrow mono">Something is being verified</p>
+        <h1 id="h">
+          <span class="l"><span>Reach is everywhere.</span></span>
+          <span class="l"><span><em id="proof">Proof</em> is coming.</span></span>
+        </h1>
+        <p class="lede">Every brand can find an audience. Very few can say <strong>who</strong> they actually reached, or <strong>what it was worth</strong>. We're building a better way for brands and real communities to find each other. It isn't ready yet. <strong>It will be soon.</strong></p>
+      </div>
+
+      <aside class="status" aria-label="Your visit status">
+        <h2><span>Visitor record</span><span id="stamp">—</span></h2>
+        <dl>
+          <div class="row"><dt>Status</dt><dd class="pending">● Pending</dd></div>
+          <div class="row"><dt>Your visit</dt><dd id="visitNo">01</dd></div>
+          <div class="row"><dt>Unlocked</dt><dd><span id="unlockedNo">1</span> / 4</dd></div>
+        </dl>
+        <div class="meter" id="meter" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+        <p id="statusMsg">You're early. <b>One piece of the story is open.</b> Another unlocks each day you come back.</p>
+      </aside>
+    </div>
+    <span class="scroll-cue mono" aria-hidden="true">Scroll</span>
+  </section>
+
+  <!-- ================= FOUR WORDS ================= -->
+  <section aria-labelledby="w-h">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <div>
+          <span class="mono">01 / The idea, in four words</span>
+          <h3 class="big" id="w-h">Four words.<br><em>One a day.</em></h3>
+        </div>
+        <p>We could tell you everything now. We'd rather show you, one piece at a time. Come back tomorrow and the next word opens.</p>
+      </div>
+
+      <div class="words rv" id="words">
+        <article class="word" data-i="0">
+          <div class="n mono"><span>01</span><span class="tick"><svg viewBox="0 0 12 12"><path d="M2 6.3l2.6 2.6L10 3.4" fill="none" stroke="#07111F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+          <div class="w"><span>Connect.</span></div>
+          <div class="d"><span>The right brands, meeting the right people. Not everyone. The people it is actually meant for.</span></div>
+          <span class="lock mono">Unlocks on your next visit</span>
+        </article>
+        <article class="word" data-i="1">
+          <div class="n mono"><span>02</span><span class="tick"><svg viewBox="0 0 12 12"><path d="M2 6.3l2.6 2.6L10 3.4" fill="none" stroke="#07111F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+          <div class="w"><span>Verify.</span></div>
+          <div class="d"><span>A simple step that shows you belong to your community, and that tells you why each detail is needed.</span></div>
+          <span class="lock mono">Unlocks on day 2</span>
+        </article>
+        <article class="word" data-i="2">
+          <div class="n mono"><span>03</span><span class="tick"><svg viewBox="0 0 12 12"><path d="M2 6.3l2.6 2.6L10 3.4" fill="none" stroke="#07111F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+          <div class="w"><span>Engage.</span></div>
+          <div class="d"><span>Offers, experiences and opportunities that feel relevant, because they were made for the people seeing them.</span></div>
+          <span class="lock mono">Unlocks on day 3</span>
+        </article>
+        <article class="word" data-i="3">
+          <div class="n mono"><span>04</span><span class="tick"><svg viewBox="0 0 12 12"><path d="M2 6.3l2.6 2.6L10 3.4" fill="none" stroke="#07111F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+          <div class="w"><span>Grow.</span></div>
+          <div class="d"><span>Every connection measured. What worked, what didn't, and what it was worth, in numbers you can act on.</span></div>
+          <span class="lock mono">Unlocks on day 4</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= MARQUEE ================= -->
+  <div class="marquee" aria-hidden="true">
+    <div class="track">
+      <span>Students</span><span><em>Gen Z</em></span><span>Young professionals</span><span><em>Working professionals</em></span><span>Verified communities</span><span><em>Ambitious brands</em></span><span>Partners</span>
+      <span>Students</span><span><em>Gen Z</em></span><span>Young professionals</span><span><em>Working professionals</em></span><span>Verified communities</span><span><em>Ambitious brands</em></span><span>Partners</span>
+    </div>
+  </div>
+
+  <!-- ================= THREE SIDES ================= -->
+  <section aria-labelledby="s-h">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <div>
+          <span class="mono">02 / Who it's for</span>
+          <h3 class="big" id="s-h">One handshake.<br><em>Three hands.</em></h3>
+        </div>
+        <p>Brands, people and partners usually meet through a long chain of tools and vendors. We think they should meet in one place, with trust built in from the first step.</p>
+      </div>
+
+      <div class="sides">
+        <article class="side rv">
+          <span class="mono">For brands</span>
+          <svg class="glyph" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="20" fill="none" stroke="#3FD0C4" stroke-width="1.2"/><circle cx="22" cy="22" r="12" fill="none" stroke="#3FD0C4" stroke-width="1.2" opacity=".6"/><circle cx="22" cy="22" r="4" fill="#3FD0C4"/></svg>
+          <h4>Know who you're reaching before you pay to reach them.</h4>
+          <p>Relevant, verified audiences. Meaningful engagement. And a clear line from what you spent to what came back.</p>
+        </article>
+        <article class="side rv" style="transition-delay:.08s">
+          <span class="mono">For people</span>
+          <svg class="glyph" viewBox="0 0 44 44" aria-hidden="true"><rect x="3" y="3" width="38" height="38" rx="11" fill="none" stroke="#3FD0C4" stroke-width="1.2"/><path d="M13 22.5l6 6L31 16" fill="none" stroke="#E8EEF5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <h4>Your community. Relevant opportunities. Trusted access.</h4>
+          <p>Show who you are once, simply. Find what's open to your community. We explain what information is needed and why.</p>
+        </article>
+        <article class="side rv" style="transition-delay:.16s">
+          <span class="mono">For partners</span>
+          <svg class="glyph" viewBox="0 0 44 44" aria-hidden="true"><circle cx="15" cy="22" r="12" fill="none" stroke="#3FD0C4" stroke-width="1.2"/><circle cx="29" cy="22" r="12" fill="none" stroke="#E8EEF5" stroke-width="1.2" opacity=".7"/></svg>
+          <h4>Bring what you do best to a much bigger room.</h4>
+          <p>Connect your technology, reach or execution to a wider network of brands and verified audiences.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PRINCIPLES ================= -->
+  <section aria-labelledby="p-h" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <div>
+          <span class="mono">03 / What we won't compromise on</span>
+          <h3 class="big" id="p-h">Trust isn't a feature.<br><em>It's the foundation.</em></h3>
+        </div>
+      </div>
+      <div class="principles rv">
+        <div><span class="mono" style="color:var(--teal)">i.</span><b>Privacy by design</b><p>Only what's needed, used for the reason we gave you. Built into how it works, not added to the small print.</p></div>
+        <div><span class="mono" style="color:var(--teal)">ii.</span><b>A fair exchange</b><p>When you share something, it should be clear what you get in return. If it isn't clear, we haven't done our job.</p></div>
+        <div><span class="mono" style="color:var(--teal)">iii.</span><b>Proof over promises</b><p>No big adjectives. Just outcomes you can see and measure.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CLOSING ================= -->
+  <section class="closing" aria-labelledby="c-h">
+    <div class="wrap rv">
+      <h3 class="not" id="c-h">Not <em>yet.</em></h3>
+      <p class="sub">We're still checking the last few details. Come back in a few days. Every visit opens a little more of the story.</p>
+      <span class="countdown-label mono" id="cdLabel">Next piece unlocks in</span>
+      <div class="countdown" role="timer" aria-live="off">
+        <div class="u"><span class="v" id="cdH">00</span><span class="k">Hours</span></div>
+        <span class="sep">:</span>
+        <div class="u"><span class="v" id="cdM">00</span><span class="k">Min</span></div>
+        <span class="sep">:</span>
+        <div class="u"><span class="v" id="cdS">00</span><span class="k">Sec</span></div>
+      </div>
+      <p class="hint mono">Don't lose your place. Press <kbd id="kbd">Ctrl</kbd> <kbd>D</kbd> to bookmark this page.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="mono">
+  <span>Status: Pending verification</span>
+  <span>© <span id="yr">2026</span></span>
+</footer>
+
+<script>
+(() => {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const $ = id => document.getElementById(id);
+  const pad = n => String(n).padStart(2, '0');
+  $('yr').textContent = new Date().getFullYear();
+  if (/Mac|iPhone|iPad/.test(navigator.platform || navigator.userAgent)) $('kbd').textContent = '⌘';
+
+  /* ---------- return-visit memory (this browser only) ---------- */
+  const KEY = 'pv-record-v1';
+  const today = (() => { const d = new Date(); return d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate()); })();
+  let rec = { visits: 0, days: [], seen: 0 };
+  try { const raw = localStorage.getItem(KEY); if (raw) rec = Object.assign(rec, JSON.parse(raw)); } catch (e) {}
+  rec.visits += 1;
+  if (!rec.days.includes(today)) rec.days.push(today);
+  const unlocked = Math.min(4, rec.days.length);
+  const newlyOpened = unlocked > (rec.seen || 0) && rec.seen > 0 ? unlocked - 1 : -1;
+  const firstStamp = rec.days[0];
+  rec.seen = unlocked;
+  try { localStorage.setItem(KEY, JSON.stringify(rec)); } catch (e) {}
+
+  $('visitNo').textContent = pad(rec.visits);
+  $('unlockedNo').textContent = unlocked;
+  $('stamp').textContent = firstStamp ? firstStamp.split('-').reverse().slice(0, 2).join('.') : '—';
+  [...$('meter').children].forEach((el, i) => { if (i < unlocked) el.classList.add('on'); else if (i === unlocked) el.classList.add('next'); });
+
+  const msgs = [
+    "You're early. <b>One piece of the story is open.</b> Another unlocks each day you come back.",
+    "Welcome back. <b>You came back, and that counts.</b> A second piece is now open.",
+    "Three days in. <b>You've seen more than most.</b> One piece left.",
+    "<b>You've unlocked all four.</b> What comes next is the real thing. Keep checking in."
+  ];
+  $('statusMsg').innerHTML = msgs[unlocked - 1];
+
+  document.querySelectorAll('.word').forEach(el => {
+    const i = +el.dataset.i;
+    if (i < unlocked) el.classList.add('open'); else el.classList.add('locked');
+    if (i === newlyOpened) el.classList.add('fresh');
+    if (i === unlocked) el.querySelector('.lock').textContent = 'Unlocks on your next visit, tomorrow';
+    else if (i > unlocked) el.querySelector('.lock').textContent = 'Unlocks after ' + (i - unlocked + 1) + ' more days';
+    if (i >= unlocked) el.setAttribute('aria-label', 'Locked. Come back later to reveal.');
+  });
+
+  if (unlocked >= 4) $('cdLabel').textContent = 'Next check-in window opens in';
+
+  /* ---------- countdown to local midnight ---------- */
+  const tick = () => {
+    const now = new Date(), next = new Date(now); next.setHours(24, 0, 0, 0);
+    let s = Math.max(0, Math.floor((next - now) / 1000));
+    $('cdH').textContent = pad(Math.floor(s / 3600)); s %= 3600;
+    $('cdM').textContent = pad(Math.floor(s / 60));
+    $('cdS').textContent = pad(s % 60);
+  };
+  tick(); setInterval(tick, 1000);
+
+  /* ---------- decode effect on "Proof" ---------- */
+  const proof = $('proof'), target = 'Proof', glyphs = '█▓▒░#%&@$?';
+  if (!reduce) {
+    let f = 0;
+    const run = () => {
+      f++;
+      proof.textContent = target.split('').map((c, i) => f > 14 + i * 5 ? c : glyphs[(Math.random() * glyphs.length) | 0]).join('');
+      if (f < 14 + target.length * 5) setTimeout(run, 45); else proof.textContent = target;
+    };
+    setTimeout(run, 500);
+  }
+
+  /* ---------- scroll reveal ---------- */
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .15 });
+  document.querySelectorAll('.rv').forEach(el => io.observe(el));
+
+  /* ---------- verification field ---------- */
+  const cv = $('field'), ctx = cv.getContext('2d');
+  let W, H, DPR, nodes = [], pulses = [], links = [], running = true, last = 0, nextVerify = 0;
+  const TEAL = '63,208,196', AMBER = '242,184,75', BASE = '150,185,215';
+
+  function setup() {
+    DPR = Math.min(2, window.devicePixelRatio || 1);
+    W = cv.clientWidth; H = cv.clientHeight;
+    cv.width = W * DPR; cv.height = H * DPR; ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+    const count = Math.round(Math.min(140, Math.max(50, (W * H) / 11000)));
+    nodes = Array.from({ length: count }, () => ({
+      x: Math.random() * W, y: Math.random() * H,
+      vx: (Math.random() - .5) * .12, vy: (Math.random() - .5) * .12,
+      r: Math.random() * 1.4 + .8, state: 0, t: 0, life: 0
+    }));
+    links = []; pulses = [];
+  }
+
+  function verifyOne(now) {
+    const pool = nodes.filter(n => n.state === 0 && n.x > W * .3);
+    if (!pool.length) return;
+    const n = pool[(Math.random() * pool.length) | 0];
+    n.state = 1; n.t = now;                       // scanning (amber)
+    pulses.push({ n, t: now });
+    setTimeout(() => {
+      n.state = 2; n.t = performance.now(); n.life = 12000 + Math.random() * 9000;  // verified (teal)
+      const verified = nodes.filter(m => m !== n && m.state === 2)
+        .map(m => ({ m, d: Math.hypot(m.x - n.x, m.y - n.y) })).sort((a, b) => a.d - b.d).slice(0, 2);
+      verified.forEach(({ m, d }) => { if (d < Math.max(W, H) * .35) links.push({ a: n, b: m, t: performance.now() }); });
+    }, 1100);
+  }
+
+  function frame(now) {
+    if (!running) return;
+    const dt = Math.min(50, now - (last || now)); last = now;
+    ctx.clearRect(0, 0, W, H);
+
+    if (now > nextVerify) { verifyOne(now); nextVerify = now + 420 + Math.random() * 700; }
+
+    // links
+    links = links.filter(l => l.a.state === 2 && l.b.state === 2);
+    for (const l of links) {
+      const p = Math.min(1, (now - l.t) / 900);
+      const x2 = l.a.x + (l.b.x - l.a.x) * p, y2 = l.a.y + (l.b.y - l.a.y) * p;
+      const g = ctx.createLinearGradient(l.a.x, l.a.y, l.b.x, l.b.y);
+      g.addColorStop(0, `rgba(${TEAL},.35)`); g.addColorStop(1, `rgba(${TEAL},.08)`);
+      ctx.strokeStyle = g; ctx.lineWidth = .8;
+      ctx.beginPath(); ctx.moveTo(l.a.x, l.a.y); ctx.lineTo(x2, y2); ctx.stroke();
+    }
+
+    // scan pulses
+    pulses = pulses.filter(p => now - p.t < 1300);
+    for (const p of pulses) {
+      const k = (now - p.t) / 1300;
+      ctx.strokeStyle = `rgba(${AMBER},${.7 * (1 - k)})`; ctx.lineWidth = 1;
+      ctx.beginPath(); ctx.arc(p.n.x, p.n.y, 4 + k * 22, 0, Math.PI * 2); ctx.stroke();
+    }
+
+    // nodes
+    for (const n of nodes) {
+      n.x += n.vx * dt * .06; n.y += n.vy * dt * .06;
+      if (n.x < -10) n.x = W + 10; if (n.x > W + 10) n.x = -10;
+      if (n.y < -10) n.y = H + 10; if (n.y > H + 10) n.y = -10;
+      if (n.state === 2 && now - n.t > n.life) n.state = 0;
+
+      if (n.state === 2) {
+        const fade = Math.min(1, (now - n.t) / 500, (n.life - (now - n.t)) / 1500);
+        ctx.fillStyle = `rgba(${TEAL},${.18 * fade})`;
+        ctx.beginPath(); ctx.arc(n.x, n.y, n.r + 6, 0, Math.PI * 2); ctx.fill();
+        ctx.fillStyle = `rgba(${TEAL},${.95 * fade + .05})`;
+        ctx.beginPath(); ctx.arc(n.x, n.y, n.r + 1.2, 0, Math.PI * 2); ctx.fill();
+      } else if (n.state === 1) {
+        ctx.fillStyle = `rgba(${AMBER},.95)`;
+        ctx.beginPath(); ctx.arc(n.x, n.y, n.r + .8, 0, Math.PI * 2); ctx.fill();
+      } else {
+        ctx.fillStyle = `rgba(${BASE},.28)`;
+        ctx.beginPath(); ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2); ctx.fill();
+      }
+    }
+    requestAnimationFrame(frame);
+  }
+
+  setup();
+  if (reduce) {
+    // static constellation: a few verified nodes, no motion
+    nodes.forEach((n, i) => { if (i % 6 === 0 && n.x > W * .3) n.state = 2; });
+    nodes.forEach(n => { ctx.fillStyle = n.state === 2 ? `rgba(${TEAL},.9)` : `rgba(${BASE},.28)`; ctx.beginPath(); ctx.arc(n.x, n.y, n.r + (n.state === 2 ? 1 : 0), 0, Math.PI * 2); ctx.fill(); });
+  } else {
+    requestAnimationFrame(frame);
+    const heroIO = new IntersectionObserver(([e]) => { const was = running; running = e.isIntersecting && !document.hidden; if (running && !was) { last = 0; requestAnimationFrame(frame); } });
+    heroIO.observe(cv);
+    document.addEventListener('visibilitychange', () => { const was = running; running = !document.hidden; if (running && !was) { last = 0; requestAnimationFrame(frame); } });
+  }
+  let rt; addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(setup, 200); });
+})();
+</script>
+</body>
+</html>
